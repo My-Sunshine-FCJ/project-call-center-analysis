@@ -79,11 +79,7 @@ This project lays the groundwork for several advanced features:
 
 - **Video Demo**
 
-<video controls>
-  <source src="other/Demo-Call-Center.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
+[Watch the Demo Video](other/Demo-Call-Center.mp4)
 
 ---
 
