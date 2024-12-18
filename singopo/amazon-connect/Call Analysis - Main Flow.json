@@ -1,0 +1,232 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "1aae6a6f-cc34-4f4b-91aa-d15e78bc128c",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": -100.8,
+      "y": 39.2
+    },
+    "ActionMetadata": {
+      "4f6a8fe5-b13e-4318-b457-5e668f34908c": {
+        "position": {
+          "x": 972,
+          "y": -134.4
+        },
+        "parameters": {
+          "ContactFlowId": {
+            "displayName": "Call Analysis - Sale Flow"
+          }
+        },
+        "ContactFlow": {
+          "text": "Call Analysis - Sale Flow"
+        }
+      },
+      "f88730ee-e476-4875-90dc-19ab35753763": {
+        "position": {
+          "x": 957.6,
+          "y": -340.8
+        },
+        "parameters": {
+          "ContactFlowId": {
+            "displayName": "Call Analysis - Switchboard Flow"
+          }
+        },
+        "ContactFlow": {
+          "text": "Call Analysis - Switchboard Flow"
+        }
+      },
+      "c9076e8f-b97d-4e86-827e-68eba5db82c3": {
+        "position": {
+          "x": 729.6,
+          "y": -144
+        }
+      },
+      "f819d48a-5e52-4571-9e34-451b0b63dff4": {
+        "position": {
+          "x": 710.4,
+          "y": -347.2
+        }
+      },
+      "448d7d54-fda8-48c6-8f1f-d6cb6f50cbbe": {
+        "position": {
+          "x": 436,
+          "y": -45.6
+        },
+        "parameters": {
+          "PromptId": {
+            "displayName": "In Call"
+          }
+        },
+        "promptName": "In Call",
+        "conditionMetadata": [
+          {
+            "id": "7b057ec7-77aa-4e6f-a48a-25fa470b8077",
+            "value": "1"
+          },
+          {
+            "id": "c6f36718-2119-4d6e-89e8-ce28cf3174aa",
+            "value": "2"
+          }
+        ]
+      },
+      "4b96d785-f849-46bf-819b-74801a515d62": {
+        "position": {
+          "x": 1180,
+          "y": 78.4
+        }
+      },
+      "1aae6a6f-cc34-4f4b-91aa-d15e78bc128c": {
+        "position": {
+          "x": 27.2,
+          "y": 21.6
+        },
+        "parameters": {
+          "PromptId": {
+            "displayName": "Start Call"
+          }
+        },
+        "promptName": "Start Call"
+      }
+    },
+    "Annotations": [],
+    "name": "Call Analysis - Main Flow",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "ContactFlowId": "arn:aws:connect:ap-southeast-1:590183822512:instance/678bb7ed-adfc-4e6b-a4e7-bdb02fe66a18/contact-flow/3d2712cc-8029-4c73-9176-114672585f4b"
+      },
+      "Identifier": "4f6a8fe5-b13e-4318-b457-5e668f34908c",
+      "Type": "TransferToFlow",
+      "Transitions": {
+        "NextAction": "4b96d785-f849-46bf-819b-74801a515d62",
+        "Errors": [
+          {
+            "NextAction": "4b96d785-f849-46bf-819b-74801a515d62",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ContactFlowId": "arn:aws:connect:ap-southeast-1:590183822512:instance/678bb7ed-adfc-4e6b-a4e7-bdb02fe66a18/contact-flow/d31942fc-8033-417c-ba77-8489d632b7b4"
+      },
+      "Identifier": "f88730ee-e476-4875-90dc-19ab35753763",
+      "Type": "TransferToFlow",
+      "Transitions": {
+        "NextAction": "4b96d785-f849-46bf-819b-74801a515d62",
+        "Errors": [
+          {
+            "NextAction": "4b96d785-f849-46bf-819b-74801a515d62",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "RecordingBehavior": {
+          "RecordedParticipants": [
+            "Agent",
+            "Customer"
+          ],
+          "IVRRecordingBehavior": "Disabled"
+        }
+      },
+      "Identifier": "c9076e8f-b97d-4e86-827e-68eba5db82c3",
+      "Type": "UpdateContactRecordingBehavior",
+      "Transitions": {
+        "NextAction": "4f6a8fe5-b13e-4318-b457-5e668f34908c"
+      }
+    },
+    {
+      "Parameters": {
+        "RecordingBehavior": {
+          "RecordedParticipants": [
+            "Agent",
+            "Customer"
+          ],
+          "IVRRecordingBehavior": "Disabled"
+        }
+      },
+      "Identifier": "f819d48a-5e52-4571-9e34-451b0b63dff4",
+      "Type": "UpdateContactRecordingBehavior",
+      "Transitions": {
+        "NextAction": "f88730ee-e476-4875-90dc-19ab35753763"
+      }
+    },
+    {
+      "Parameters": {
+        "StoreInput": "False",
+        "InputTimeLimitSeconds": "5",
+        "PromptId": "arn:aws:connect:ap-southeast-1:590183822512:instance/678bb7ed-adfc-4e6b-a4e7-bdb02fe66a18/prompt/05705788-17ac-4e63-86fb-e84d5eb1455b"
+      },
+      "Identifier": "448d7d54-fda8-48c6-8f1f-d6cb6f50cbbe",
+      "Type": "GetParticipantInput",
+      "Transitions": {
+        "NextAction": "4b96d785-f849-46bf-819b-74801a515d62",
+        "Conditions": [
+          {
+            "NextAction": "f819d48a-5e52-4571-9e34-451b0b63dff4",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "1"
+              ]
+            }
+          },
+          {
+            "NextAction": "c9076e8f-b97d-4e86-827e-68eba5db82c3",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "2"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "4b96d785-f849-46bf-819b-74801a515d62",
+            "ErrorType": "InputTimeLimitExceeded"
+          },
+          {
+            "NextAction": "4b96d785-f849-46bf-819b-74801a515d62",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "4b96d785-f849-46bf-819b-74801a515d62",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "4b96d785-f849-46bf-819b-74801a515d62",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "PromptId": "arn:aws:connect:ap-southeast-1:590183822512:instance/678bb7ed-adfc-4e6b-a4e7-bdb02fe66a18/prompt/b0eb1f2b-1c7b-4729-b184-9901d71dce57"
+      },
+      "Identifier": "1aae6a6f-cc34-4f4b-91aa-d15e78bc128c",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "448d7d54-fda8-48c6-8f1f-d6cb6f50cbbe",
+        "Errors": [
+          {
+            "NextAction": "4b96d785-f849-46bf-819b-74801a515d62",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}

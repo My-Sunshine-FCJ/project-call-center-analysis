@@ -1,0 +1,3 @@
+CustomerId,FirstName,MiddleName,LastName,Gender,PartyType,DateOfBirth,AccountNumber,PhoneNumber,MobilePhone,HomePhone,BusinessPhone,Email,BusinessEmail,PersonalEmail,StreetAddress,Apartment,Country,PostalCode,State,City,AdditionalInfo
+CUS011,Ly,Hoang,Phap,Female,Other,2002-09-02,,+84363884209,+84363884209,,,,hviet519@gmail.com,hviet519@gmail.com,hviet519@gmail.com,Bien Hoa,Nhon Trach,Vietnam,810000,Dong Nai,Bien Hoa,"VIP Customer"
+CUS012,Nguyen,Van,Hoa,Male,Business,1990-09-15,ACC423,+84368006574,+84368006574,,,,vanan@gmail.com,vanan@gmail.com,vanan@gmail.com,Ho Chi Minh,Quan 1,Vietnam,700000,Ho Chi Minh,Ho Chi Minh,"Regular Customer"

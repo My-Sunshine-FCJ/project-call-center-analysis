@@ -1,0 +1,174 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "ff66df86-ab3a-4c4d-b1fa-0eddefc8b8f5",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": -632,
+      "y": 84
+    },
+    "ActionMetadata": {
+      "ff66df86-ab3a-4c4d-b1fa-0eddefc8b8f5": {
+        "position": {
+          "x": -485.6,
+          "y": 62.4
+        },
+        "children": [
+          "9c5004b2-3989-482f-a359-b52e2826e247"
+        ],
+        "parameters": {
+          "WisdomAssistantArn": {
+            "displayName": "arn:aws:wisdom:ap-southeast-1:590183822512:assistant/fead36f9-843c-4bef-a25f-5c13c2cd3273"
+          }
+        },
+        "fragments": {
+          "SetContactData": "9c5004b2-3989-482f-a359-b52e2826e247"
+        }
+      },
+      "9c5004b2-3989-482f-a359-b52e2826e247": {
+        "position": {
+          "x": -485.6,
+          "y": 62.4
+        },
+        "dynamicParams": []
+      },
+      "79194987-fc5b-4351-98fd-1aac87b17626": {
+        "position": {
+          "x": -211.2,
+          "y": 7.2
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "GetCustomerID"
+          }
+        },
+        "dynamicMetadata": {}
+      },
+      "baeb69c8-8d76-4697-8f0d-b01473877996": {
+        "position": {
+          "x": 53.6,
+          "y": -45.6
+        },
+        "parameters": {
+          "QueueId": {
+            "displayName": "Switchboard Queue"
+          }
+        },
+        "queue": {
+          "text": "Switchboard Queue"
+        }
+      },
+      "cf5ec96f-c682-4949-a696-d94495627ebc": {
+        "position": {
+          "x": 315.2,
+          "y": -102.4
+        }
+      },
+      "b081e09b-5f2d-46c6-8289-b6e35b26fefd": {
+        "position": {
+          "x": 603.2,
+          "y": 108
+        }
+      }
+    },
+    "Annotations": [],
+    "name": "Call Analysis - Switchboard Flow",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "WisdomAssistantArn": "arn:aws:wisdom:ap-southeast-1:590183822512:assistant/fead36f9-843c-4bef-a25f-5c13c2cd3273"
+      },
+      "Identifier": "ff66df86-ab3a-4c4d-b1fa-0eddefc8b8f5",
+      "Type": "CreateWisdomSession",
+      "Transitions": {
+        "NextAction": "9c5004b2-3989-482f-a359-b52e2826e247",
+        "Errors": [
+          {
+            "NextAction": "b081e09b-5f2d-46c6-8289-b6e35b26fefd",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "WisdomSessionArn": "$.Wisdom.SessionArn"
+      },
+      "Identifier": "9c5004b2-3989-482f-a359-b52e2826e247",
+      "Type": "UpdateContactData",
+      "Transitions": {
+        "NextAction": "79194987-fc5b-4351-98fd-1aac87b17626",
+        "Errors": [
+          {
+            "NextAction": "b081e09b-5f2d-46c6-8289-b6e35b26fefd",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:ap-southeast-1:590183822512:function:GetCustomerID",
+        "InvocationTimeLimitSeconds": "8",
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "79194987-fc5b-4351-98fd-1aac87b17626",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "baeb69c8-8d76-4697-8f0d-b01473877996",
+        "Errors": [
+          {
+            "NextAction": "b081e09b-5f2d-46c6-8289-b6e35b26fefd",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "QueueId": "arn:aws:connect:ap-southeast-1:590183822512:instance/678bb7ed-adfc-4e6b-a4e7-bdb02fe66a18/queue/e5db5c47-03e9-4ea3-964b-ed5f41f76383"
+      },
+      "Identifier": "baeb69c8-8d76-4697-8f0d-b01473877996",
+      "Type": "UpdateContactTargetQueue",
+      "Transitions": {
+        "NextAction": "cf5ec96f-c682-4949-a696-d94495627ebc",
+        "Errors": [
+          {
+            "NextAction": "b081e09b-5f2d-46c6-8289-b6e35b26fefd",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "cf5ec96f-c682-4949-a696-d94495627ebc",
+      "Type": "TransferContactToQueue",
+      "Transitions": {
+        "NextAction": "b081e09b-5f2d-46c6-8289-b6e35b26fefd",
+        "Errors": [
+          {
+            "NextAction": "b081e09b-5f2d-46c6-8289-b6e35b26fefd",
+            "ErrorType": "QueueAtCapacity"
+          },
+          {
+            "NextAction": "b081e09b-5f2d-46c6-8289-b6e35b26fefd",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "b081e09b-5f2d-46c6-8289-b6e35b26fefd",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    }
+  ]
+}

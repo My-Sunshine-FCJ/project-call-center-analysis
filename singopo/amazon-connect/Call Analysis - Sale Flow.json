@@ -1,0 +1,165 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "23967439-ca55-4894-a5f0-bb211a6f0edb",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 25.6,
+      "y": -4.8
+    },
+    "ActionMetadata": {
+      "23967439-ca55-4894-a5f0-bb211a6f0edb": {
+        "position": {
+          "x": 179.2,
+          "y": 37.6
+        },
+        "parameters": {
+          "QueueId": {
+            "displayName": "Sales Queue"
+          }
+        },
+        "queue": {
+          "text": "Sales Queue"
+        }
+      },
+      "fa569492-6cef-49cc-bfc7-c08479df7aa7": {
+        "position": {
+          "x": 740.8,
+          "y": -156.8
+        }
+      },
+      "f2656294-62c1-443a-a485-6e9bf0012c37": {
+        "position": {
+          "x": 440.8,
+          "y": -118.4
+        },
+        "parameters": {
+          "HoursOfOperationId": {
+            "displayName": "NineToFive"
+          }
+        },
+        "Hours": {
+          "id": "arn:aws:connect:ap-southeast-1:590183822512:instance/678bb7ed-adfc-4e6b-a4e7-bdb02fe66a18/operating-hours/917439f5-8e6e-43b5-86f8-62a4935bdb42",
+          "text": "NineToFive"
+        }
+      },
+      "a2947384-b55a-4186-8e28-419e744f3a11": {
+        "position": {
+          "x": 664,
+          "y": 222.4
+        },
+        "parameters": {
+          "PromptId": {
+            "displayName": "Stop Call"
+          }
+        },
+        "promptName": "Stop Call"
+      },
+      "914bb0e5-6257-49be-ad16-f6e9523539be": {
+        "position": {
+          "x": 1085.6,
+          "y": -8.8
+        }
+      }
+    },
+    "Annotations": [],
+    "name": "Call Analysis - Sale Flow",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "QueueId": "arn:aws:connect:ap-southeast-1:590183822512:instance/678bb7ed-adfc-4e6b-a4e7-bdb02fe66a18/queue/57b7cf53-f957-497b-8772-e58f25c1aada"
+      },
+      "Identifier": "23967439-ca55-4894-a5f0-bb211a6f0edb",
+      "Type": "UpdateContactTargetQueue",
+      "Transitions": {
+        "NextAction": "f2656294-62c1-443a-a485-6e9bf0012c37",
+        "Errors": [
+          {
+            "NextAction": "914bb0e5-6257-49be-ad16-f6e9523539be",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "fa569492-6cef-49cc-bfc7-c08479df7aa7",
+      "Type": "TransferContactToQueue",
+      "Transitions": {
+        "NextAction": "914bb0e5-6257-49be-ad16-f6e9523539be",
+        "Errors": [
+          {
+            "NextAction": "914bb0e5-6257-49be-ad16-f6e9523539be",
+            "ErrorType": "QueueAtCapacity"
+          },
+          {
+            "NextAction": "914bb0e5-6257-49be-ad16-f6e9523539be",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "HoursOfOperationId": "arn:aws:connect:ap-southeast-1:590183822512:instance/678bb7ed-adfc-4e6b-a4e7-bdb02fe66a18/operating-hours/917439f5-8e6e-43b5-86f8-62a4935bdb42"
+      },
+      "Identifier": "f2656294-62c1-443a-a485-6e9bf0012c37",
+      "Type": "CheckHoursOfOperation",
+      "Transitions": {
+        "NextAction": "914bb0e5-6257-49be-ad16-f6e9523539be",
+        "Conditions": [
+          {
+            "NextAction": "fa569492-6cef-49cc-bfc7-c08479df7aa7",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "True"
+              ]
+            }
+          },
+          {
+            "NextAction": "a2947384-b55a-4186-8e28-419e744f3a11",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "False"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "914bb0e5-6257-49be-ad16-f6e9523539be",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "PromptId": "arn:aws:connect:ap-southeast-1:590183822512:instance/678bb7ed-adfc-4e6b-a4e7-bdb02fe66a18/prompt/024964a4-1ce9-40d5-9b7b-869c3356aafe"
+      },
+      "Identifier": "a2947384-b55a-4186-8e28-419e744f3a11",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "914bb0e5-6257-49be-ad16-f6e9523539be",
+        "Errors": [
+          {
+            "NextAction": "914bb0e5-6257-49be-ad16-f6e9523539be",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "914bb0e5-6257-49be-ad16-f6e9523539be",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    }
+  ]
+}
