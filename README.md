@@ -18,10 +18,6 @@ This project leverages **Amazon Connect**, **Amazon Transcribe**, and **Amazon B
     - [Amazon Connect](#amazon-connect-1)
     - [Amazon Transcribe](#amazon-transcribe-1)
     - [Amazon Bedrock](#amazon-bedrock-1)
-  - [Links](#links)
-    - [Source Code](#source-code)
-    - [Workshop Demo](#workshop-demo)
-    - [Design \& Example](#design--example)
   - [Conclusion](#conclusion)
 
 ---
@@ -63,6 +59,8 @@ This project lays the groundwork for several advanced features:
 
 ## Architecture
 - [Project Architecture](https://drive.google.com/file/d/1yYfcDMeP6X4r9yUZ4AWC8K_-RZbInvht/view?usp=sharing)
+
+![alt text](other/architect.png)
 
 ---
 
