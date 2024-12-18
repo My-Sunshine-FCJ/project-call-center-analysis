@@ -1,107 +1,116 @@
-# AI Application for Evaluating Compliance in Bank Employee Customer Calls
+# AI-Powered Call Center Compliance Evaluation
 
-This project leverages **Amazon Connect**, **Amazon Transcribe**, and **Amazon Bedrock** to build an AI-powered solution that evaluates compliance in customer service calls, analyzes customer sentiments, and enhances operational efficiency for banking employees.
+An intelligent solution leveraging AWS services to automate compliance monitoring and enhance customer experience in banking call centers. This project combines Amazon Connect, Amazon Transcribe, and Amazon Bedrock to create a comprehensive system for analyzing customer interactions and ensuring regulatory compliance.
 
----
+## 🎯 Overview
 
-## Table of Contents
-- [AI Application for Evaluating Compliance in Bank Employee Customer Calls](#ai-application-for-evaluating-compliance-in-bank-employee-customer-calls)
-  - [Table of Contents](#table-of-contents)
-  - [Summary](#summary)
-  - [Key Features](#key-features)
-    - [Amazon Connect](#amazon-connect)
-    - [Amazon Transcribe](#amazon-transcribe)
-    - [Amazon Bedrock](#amazon-bedrock)
-  - [Future Development Directions](#future-development-directions)
-  - [Architecture](#architecture)
-  - [Demo](#demo)
-  - [Resources \& References](#resources--references)
-    - [Amazon Connect](#amazon-connect-1)
-    - [Amazon Transcribe](#amazon-transcribe-1)
-    - [Amazon Bedrock](#amazon-bedrock-1)
-  - [Conclusion](#conclusion)
+This project provides an AI-powered solution for:
+- Real-time compliance monitoring of customer service calls
+- Automated transcription and analysis of conversations
+- Sentiment analysis and customer satisfaction tracking
+- Enhanced operational efficiency for banking employees
 
----
+## 🏗️ Architecture
 
-## Summary
-This project focuses on analyzing bank employee calls with customers, ensuring compliance, improving customer satisfaction, and automating manual tasks. The main technologies used include:
+![Architecture Diagram](other/architect.png)
 
-- **Amazon Connect** for real-time call handling and voice storage
-- **Amazon Transcribe** for audio-to-text transcription
-- **Amazon Bedrock** for analyzing conversations, sentiment detection, and process compliance
+The system architecture integrates three main AWS services:
 
-By integrating these services, the project ensures efficient monitoring, compliance evaluation, and advanced insights to help improve customer experience.
+1. **Amazon Connect**
+   - Handles real-time call management
+   - Stores voice recordings
+   - Manages customer profiles
+   - Integrates with Amazon Q for agent assistance
 
----
+2. **Amazon Transcribe**
+   - Converts call audio to text
+   - Enables detailed conversation analysis
+   - Provides accurate transcription for compliance review
 
-## Key Features
+3. **Amazon Bedrock**
+   - Analyzes conversation compliance
+   - Performs sentiment analysis
+   - Generates insights and recommendations
+
+## 🚀 Features
+
+### Core Functionality
+- Real-time call monitoring and recording
+- Automated compliance checking against banking regulations
+- Sentiment analysis and customer satisfaction tracking
+- Detailed analytics and reporting dashboard
+
+### Agent Interface
+![Agent Interface](other/Agent.png)
+
+### Analysis Dashboard
+![Analysis Interface 1](other/UI1.png)
+![Analysis Interface 2](other/UI2.png)
+
+## 🎥 Demo
+
+Check out our demonstration video to see the system in action:
+[Watch Demo Video](./other/Demo-Call-Center.mp4)
+
+## 🛠️ Setup and Installation
+
+1. **Prerequisites**
+   - AWS Account with appropriate permissions
+   - Access to Amazon Connect, Transcribe, and Bedrock services
+   - Basic understanding of AWS service configuration
+
+2. **Amazon Connect Setup**
+   - Configure Amazon Connect instance
+   - Set up call flows and recording
+   - Enable customer profiles
+   - Integrate Amazon Q
+
+3. **Amazon Transcribe Configuration**
+   - Enable real-time transcription
+   - Configure language settings
+   - Set up custom vocabulary (if needed)
+
+4. **Amazon Bedrock Integration**
+   - Set up knowledge base
+   - Configure analysis models
+   - Enable API access
+
+## 📚 Documentation & Resources
 
 ### Amazon Connect
-- **Real-time Call Management:** Enables real-time calling and automatic voice recording for every customer interaction.
-- **Customer Profile Management:** Organizes and maintains detailed customer profiles for personalized support.
-- **Amazon Q Integration:** Enhances support agent productivity with AI-powered chat assistance.
+- [Call Flows Documentation](https://docs.aws.amazon.com/connect/)
+- [Customer Profile Guide](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles.html)
+- [Amazon Q Integration](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html)
+- [Video Tutorial](https://www.youtube.com/watch?v=yKNb6db_d7c)
 
 ### Amazon Transcribe
-- **Accurate Audio-to-Text Conversion:** Converts customer call audio into readable and analyzable text with high accuracy.
+- [Service Overview](https://www.youtube.com/watch?v=r77sUEEizWQ)
 
 ### Amazon Bedrock
-- **Process Analysis:** Analyzes customer conversations to ensure they adhere to standard operating procedures and compliance guidelines.
-- **Sentiment Analysis:** Evaluates the emotions and satisfaction levels of customers during calls.
+- [Getting Started Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html)
+- [Knowledge Base Setup](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create.html)
+
+## 🔮 Future Development
+
+Planned enhancements include:
+- Advanced fraud detection using voice pattern analysis
+- Enhanced customer insights through deep learning
+- Expanded compliance rule sets
+- Integration with additional AWS services
+
+## 🤝 Contributing
+
+We welcome contributions to improve this project. Please:
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request with detailed description
+
+## 📜 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🎖️ Acknowledgments
+
+Developed for HDBank Hackathon 2024
 
 ---
-
-## Future Development Directions
-This project lays the groundwork for several advanced features:
-
-1. **Fraud Detection in Voice Calls:** Detect potential fraudulent activities by analyzing call behaviors and patterns using **Amazon Connect**.
-2. **Advanced Customer Insights:** Extract and summarize customer requests and pain points to better understand their needs using **Amazon Bedrock**.
-
----
-
-## Architecture
-- [Project Architecture](https://drive.google.com/file/d/1yYfcDMeP6X4r9yUZ4AWC8K_-RZbInvht/view?usp=sharing)
-
-![alt text](other/architect.png)
-
----
-
-## Demo
-
-- **Interface Agent**
-
-![alt text](other/Agent.png)
-
-- **Interface Analysis**
-
-![alt text](other/UI1.png)
-
-![alt text](other/UI2.png)
-
-- **Video Demo**
-
-[Watch the Demo Video](other/Demo-Call-Center.mp4)
----
-
-## Resources & References
-### Amazon Connect
-- [Documentation on Call Flows](https://docs.aws.amazon.com/connect/)
-- [Customer Profile Documentation](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles.html)
-- [Amazon Q Overview](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html)
-  - [Amazon Q Video Demo](https://www.youtube.com/watch?v=tZE7yJA50ag&t=519s)
-- [Amazon Connect Video Guide](https://www.youtube.com/watch?v=yKNb6db_d7c)
-
-### Amazon Transcribe
-- [Amazon Transcribe Video Overview](https://www.youtube.com/watch?v=r77sUEEizWQ)
-
-### Amazon Bedrock
-- [Getting Started with Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html)
-- [Amazon Bedrock Knowledge Base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create.html)
-
----
-
-## Conclusion
-This AI-powered application provides a robust solution for monitoring, analyzing, and improving compliance in customer calls within the banking industry. By leveraging **Amazon Connect**, **Amazon Transcribe**, and **Amazon Bedrock**, this project helps automate workflows, evaluate customer satisfaction, and ensure compliance across all interactions.
-
----
-**Developed for HDBank Hackathon** 🚀
-
