@@ -77,6 +77,10 @@ This project lays the groundwork for several advanced features:
 
 ![alt text](other/UI2.png)
 
+- **Video Demo**
+
+<video controls src="other/Demo-Call-Center.mp4" title="Title"></video>
+
 ---
 
 ## Resources & References
