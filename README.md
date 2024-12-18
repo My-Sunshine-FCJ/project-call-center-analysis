@@ -62,7 +62,7 @@ This project lays the groundwork for several advanced features:
 ---
 
 ## Architecture
-![Project Architecture](https://drive.google.com/file/d/1yYfcDMeP6X4r9yUZ4AWC8K_-RZbInvht/view?usp=sharing)
+- [Project Architecture](https://drive.google.com/file/d/1yYfcDMeP6X4r9yUZ4AWC8K_-RZbInvht/view?usp=sharing)
 
 ---
 
