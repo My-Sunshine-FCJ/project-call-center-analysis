@@ -67,11 +67,11 @@ This project lays the groundwork for several advanced features:
 
 ## Demo
 
-- Interface Agent
+- **Interface Agent**
 
 ![alt text](other/Agent.png)
 
-- Interface UI
+- **Interface Analysis**
 
 ![alt text](other/UI1.png)
 
