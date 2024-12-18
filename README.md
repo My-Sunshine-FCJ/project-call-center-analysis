@@ -83,19 +83,6 @@ This project lays the groundwork for several advanced features:
 
 ---
 
-## Links
-### Source Code
-- [Hackathon HDBank Project Source Code](https://github.com/LyHoangViet/hackathon-hdbank.git)
-
-### Workshop Demo
-- [AI Call Analysis Workshop](https://github.com/LyHoangViet/ai-call-analysis.git)
-
-### Design & Example
-- [Figma Design](https://www.figma.com/design/7gs6lGtRKisrdMYcrxJEkT/Untitled?node-id=0-1&node-type=canvas&t=bBu0jVvXJAUUpcL3-0)
-- [Amazon Connect Real-Time Transcription Example](https://github.com/amazon-connect/amazon-connect-realtime-transcription?tab=readme-ov-file#architecture-overview)
-
----
-
 ## Conclusion
 This AI-powered application provides a robust solution for monitoring, analyzing, and improving compliance in customer calls within the banking industry. By leveraging **Amazon Connect**, **Amazon Transcribe**, and **Amazon Bedrock**, this project helps automate workflows, evaluate customer satisfaction, and ensure compliance across all interactions.
 
