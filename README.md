@@ -50,7 +50,7 @@ The system architecture integrates three main AWS services:
 ## 🎥 Demo
 
 Check out our demonstration video to see the system in action:
-[Watch Demo Video](./other/Demo-Call-Center.mp4)
+[Watch Demo Video](https://drive.google.com/file/d/1xMTGGh_PFU3QWF5ZQDD2Bji6WqcayHfO/view?usp=drive_link)
 
 ## 🛠️ Setup and Installation
 
